@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <form action="/registrarUsuario" method="POST" class="formRegistro mx-auto">
+        <h4 class="text-center">REGISTRO DE USUARIOS</h4>
+        <div class="horizontal mt-5">
+            <div class="mb-3 inline">
+                <label for="apellidoRegistro" class="form-label">Apellido</label>
+                <input type="text" class="form-control control-registro" name="apellido" id="apellidoRegistro" placeholder="apellido">
+            </div>
+            <div class="mb-3 inline">
+                <label for="nombreRegistro" class="form-label">Nombre</label>
+                <input type="text" class="form-control control-registro" name="nombre" id="nombreRegistro" placeholder="nombre">
+            </div>
+        </div>
+        <div class="horizontal">
+            <div class="mb-3 inline">
+                <label for="dniRegistro" class="form-label">DNI</label>
+                <input type="text" class="form-control" name="dni" id="dniRegistro" placeholder="12345678">
+            </div>
+            <div class="mb-3 inline">
+                <label for="direccionRegistro" class="form-label">Direccion</label>
+                <input type="text" class="form-control" name="direccion" id="direccionRegistro" placeholder="Las Heras 2970">
+            </div>
+        </div>
+        <div class="horizontal">
+            <div class="mb-3 inline">
+                <label for="localidadRegistro" class="form-label">Localidad</label>
+                <input type="text" class="form-control" name="localidad" id="localidadRegistro" placeholder="Bahia Blanca">
+            </div>
+            <div class="mb-3 inline">
+                <label for="correoRegistro" class="form-label">Correo</label>
+                <input type="email" class="form-control" name="correo" id="correoRegistro" placeholder="nombre@dominio.com">
+            </div>
+        </div>
+        <div class="horizontal">
+            <div class="mb-3 inline">
+                <label for="telefonoRegistro" class="form-label">Telefono</label>
+                <input type="text" class="form-control" name="telefono" id="telefonoRegistro" placeholder="2284570399">
+            </div>
+            <div class="mb-3 inline">
+                <label for="areaRegistro" class="form-label">Filial</label>
+                <select type="text" name="filial" id="filialRegistro" class="form-control control-registro" placeholder="" value=" " aria-describedby="basic-addon1">
+                    <option value="C-00">Reconquista</option>
+                    <option value="C-01">Avellaneda</option>
+                    <option value="C-02">Cañada Ombu</option>
+                    <option value="C-03">Colonia Duran</option>
+                    <option value="C-04">Sombrerito</option>
+                    <option value="C-05">Fortin Olmos</option>
+                    <option value="C-06">Km 115</option>
+                    <option value="C-07">Romang</option>
+                    <option value="C-08">San Manuel</option>
+                    <option value="C-09">Tacuarendi</option>
+                </select>
+            </div>
+        </div>
+        <div class="horizontal">
+            <div class="mb-3 inline">
+                <label for="cargoRegistro" class="form-label">Cargo</label>
+                <select type="text" name="cargo" id="cargoRegistro" class="form-control" placeholder="" value=" " aria-describedby="basic-addon1">
+                    <option value="1">Administrador</option>
+                    <option value="2">Responsable</option>
+                    <option value="3">Tesorero</option>
+                  </select>
+            </div>
+            <div class="mb-3 inline">
+                <label for="passwordRegistro" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" name="password" id="passwordRegistro" placeholder="12345678">
+            </div>
+        </div>
+        <div class="horizontal">
+            <button type="submit" class="btn btn-success btn-primaria mt-4">Registrar</button>
+            <button type="submit" class="btn btn-danger btn-primaria mt-4">Cancelar</button>
+        </div>
+        
+    </form>
+</div>

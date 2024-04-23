@@ -1,0 +1,273 @@
+/*  ----- IMPORTO TIPO DE LETRA  ----- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap');
+
+/*  ----- CREO VARIABLE DE COLORES A UTILIZAR  ----- */
+:root{
+  --color-primario-dark: #001233;
+  --color-secundario-dark: #FF595A;
+  --color-terciario-dark: #CAC0B3;
+  --color-blanco: #FFF;
+}
+
+/*  ----- ESTILOS PARA LA PANTALLA PRINCIPAL  ----- */
+
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+.contenedor{
+  display: flex;
+  width: 100%;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  background-color: var(--color-blanco);
+  min-width: 0;
+}
+
+.btn-primaria{
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+#sidebar{
+  width: 70px;
+  min-width: 70px;
+  height: 100vh;
+  z-index: 1000;
+  transition: all 0.25s ease-in-out;
+  background-color: var(--color-primario-dark);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-terciario-dark);
+}
+
+#sidebar.expand{
+  width: 260px;
+  min-width: 260px;
+}
+
+#toggle-btn{
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 1.3rem;
+}
+
+#toggle-btn i{
+  font-size: 1.5rem;
+  color: var(--color-blanco);
+}
+
+.logo{
+  border-bottom: .2px solid var(--color-terciario-dark);
+}
+
+.sidebar-logo{
+  margin: auto 0;
+}
+
+.sidebar-logo a{
+  color: var(--color-blanco);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span{
+  display: none;
+}
+
+#sidebar.expand .sidebar-logo,
+#sidebar.expand a.sidebar-link span{
+  animation: fadeIn .25s ease;
+}
+
+.sidebar-nav{
+  padding: 2rem 0;
+  flex: 1 1 auto;
+}
+
+a.sidebar-link{
+  padding: .625rem 1.3rem;
+  color: var(--color-blanco);
+  display: block;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+}
+
+
+.sidebar-link i,
+.sidebar-link img,
+.dropdown-item i{
+  font-size: 1.1rem;
+  margin-right: .75rem;
+}
+
+a.sidebar-link:hover{
+  background-color: var(--color-terciario-dark);
+  border-left: 3px solid var(--color-secundario-dark);
+}
+
+.sidebar-item{
+  position: relative;
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  background-color: #0e2238;
+  padding: 0;
+  min-width: 15rem;
+  display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+  display: block;
+  max-height: 15em;
+  width: 100%;
+  opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+  border: solid;
+  border-width: 0 .075rem .075rem 0;
+  content: "";
+  display: inline-block;
+  padding: 2px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  transform: rotate(-135deg);
+  transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+  transform: rotate(45deg);
+  transition: all .2s ease-out;
+}
+
+.navbar{
+  background-color: var(--color-primario-dark);
+  box-shadow: 0 0 2rem rgba(33, 37, 41, 0.1);
+}
+
+.navbar-expand .navbar-collapse{
+  min-width: 200px;
+}
+
+.avatar{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.content{
+  flex: 1 1 auto;
+}
+
+/*  ----- ESTILOS PARA LA VISTA USUARIO  ----- */
+
+.container h1{
+  text-align: center;
+}
+
+.btn{
+  width: 180px;
+}
+
+.img_boton{
+  width: 22px;
+  float: left;
+  margin-top: 2px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+/*  ----- ESTILOS PARA LOS REGISTROS  ----- */
+.formRegistro{
+  width: 60%;
+  background-color: var(--color-terciario-dark);
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.horizontal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.horizontal .inline{
+  display: inline-block;
+  width: 350px;
+  margin-right: 1rem;
+}
+
+.horizontal .btn-primaria{
+  margin-right: 20px;
+}
+
+.control-registro{
+  width: 100%;
+}
+
+h4{
+  font-size: 2rem !important;
+  font-weight: 700;
+}
+/*  ----- ESTILOS PARA RESUMENES / INICIO  ----- */
+
+.card-body{
+  background-color: var(--color-terciario-dark);
+  border-radius: 10px;
+}
+
+.row{
+  margin-bottom: 2rem;
+}
+
+.highlight{
+  background-color: var(--color-primario-dark);
+  color: var(--color-blanco);
+}
+/*  ----- PARA DISPOSITIVOS MOVILES  ----- */
+
+@media only screen and (max-width: 600px) {
+  .form{
+    width: 100% !important;
+  }
+
+  .navbar-expand .navbar-nav .dropdown-menu{
+    box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.05);
+  }
+}
+

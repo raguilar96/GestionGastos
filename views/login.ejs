@@ -1,0 +1,31 @@
+
+    <div class="container-fluid">
+        <form action="/login" class="form mx-auto" method="post">
+            <h4 class="text-center">Login</h4>
+            <div class="mb-3 nt-5">
+                <label for="dniLogin" class="form-label">DNI</label>
+                <input type="text" class="form-control" name="dni" id="dniLogin" placeholder="12345678">
+            </div>
+            <div class="mb-3">
+                <label for="passwordLogin" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" name="password" id="passwordLogin" placeholder="12345678">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4">Ingresar</button>
+        </form>
+    </div>
+    <%- include('partes/script'); -%>
+
+    <% if(alert) { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(()=>{
+                window.location = '/<%= ruta %>'
+            })
+        </script>
+    <% } %>

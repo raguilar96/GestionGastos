@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partes/head'); -%>	
+     <title>Administración - Pantalla Principal</title>
+     <link rel="stylesheet" href="/css/style.css">
+</head>
+<body> 
+    <div class="contenedor">
+        <%- include('../partes/sidebar'); -%>	 
+        <div class="main">
+            <%- include('../partes/navbar'); -%>
+            <main class="content px-3 py-4">
+                <div class="container-fluid">
+                    <%- body %>
+                </div>
+            </main>
+        </div>
+    </div>
+    <%- include('../partes/script'); -%>
+</body>
+</html>
