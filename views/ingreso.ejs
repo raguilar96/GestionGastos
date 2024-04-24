@@ -10,7 +10,7 @@
   </div>
     
     
-  <div class="row mt-5" >   
+  <div class="container my-3" >   
     
     <!--TABLA-->         
     <table  id="tabla-ingresos" class="table table-striped table-ligth table-bordered table-hover">
@@ -18,9 +18,10 @@
           <tr>
             <th class="edicion">Nro.</th>
             <th>Tipo de Ingreso</th>
+            <th>Descripcion</th>
             <th>Cantidad ($)</th>
             <th>Fecha</th>
-            <th class="edicion">Acción</th>
+            <th>Acción</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
             <% ingreso.forEach(function(item) { %>
             <td><%= item.idIngreso %></td>
             <td><%= item.idTipoIngreso %></td>
+            <td><%= item.descripcion %></td>
             <td><%= item.cantidad %></td>
             <td><%= item.fecha %></td>
             <td>
