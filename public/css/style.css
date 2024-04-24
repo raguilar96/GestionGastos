@@ -3,10 +3,10 @@
 
 /*  ----- CREO VARIABLE DE COLORES A UTILIZAR  ----- */
 :root{
-  --color-primario-dark: #1e1e1e;
-  --color-secundario-dark: #FF595A;
-  --color-terciario-dark: #CAC0B3;
-  --color-blanco: #FFF;
+  --color-primario-dark: #1e1e1e;     /*Color menu*/
+  --color-secundario-dark: #414040;   /*Color hover de menu*/
+  --color-terciario-dark: #e6c0c0;    /**/
+  --color-blanco: #ffffff;
 }
 
 /*  ----- ESTILOS PARA LA PANTALLA PRINCIPAL  ----- */
@@ -122,8 +122,8 @@ a.sidebar-link{
 }
 
 a.sidebar-link:hover{
-  background-color: var(--color-terciario-dark);
-  border-left: 3px solid var(--color-secundario-dark);
+  background-color: var(--color-secundario-dark);
+  border-left: 3px solid var(--color-terciario-dark);
 }
 
 .sidebar-item{
