@@ -15,6 +15,7 @@ router.get('/login', vistaLogin);
 router.get('/registro', vistaRegistro);
 router.get('/ingreso',  vistaIngreso);
 router.get('/egreso',  vistaEgreso);
+router.get('/inversiones',  vistaInversiones);
 router.get('/usuario', vistaUsuario);
 
 
@@ -33,5 +34,11 @@ router.post('/eliminarIngreso', crud.Eliminar_Ingreso);
 router.post('/registroEgreso', crud.Registrar_Egreso);
 router.post('/editarEgreso', crud.Editar_Egreso);
 router.post('/eliminarEgreso', crud.Eliminar_Egreso);
+
+//INVERSIONES
+router.post('/registroInversion', crud.Registrar_Inversion);
+router.post('/editarInversion', crud.Editar_Inversion);
+router.post('/eliminarInversion', crud.Eliminar_Inversion);
+
 
 module.exports = {routes: router};

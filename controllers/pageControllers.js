@@ -44,6 +44,22 @@ vistaEgreso = (req, res) => {
     });
 }
 
+
+vistaInversiones  = (req, res) => {
+    var queries =['SELECT * FROM tipoInversion',
+    'SELECT * FROM inversion INNER JOIN tipoInversion ON tipoInversion.idTipoInversion = inversion.idTipoInversion'];
+
+    conexion.query(queries.join(';'),(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.render('inversiones', {tipoInversion:results[0],inversion:results[1], layout: 'layouts/layout2'});
+        }
+    });
+}
+
+
+
 vistaUsuario = (req, res) => {
     conexion.query('SELECT usuario.idUsuario, usuario.apellido, usuario.nombre, usuario.dni, usuario.direccion, usuario.localidad, usuario.correo, usuario.telefono, filial.nombreFilial, cargo.nombreCargo FROM usuario INNER JOIN filial ON filial.idFilial = usuario.idFilial INNER JOIN cargo ON cargo.idCargo = usuario.idCargo', (error,results)=>{
         if(error){
@@ -61,5 +77,6 @@ module.exports = {
     vistaRegistro,
     vistaIngreso,
     vistaUsuario,
-    vistaEgreso
+    vistaEgreso,
+    vistaInversiones
 }

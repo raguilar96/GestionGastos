@@ -1,0 +1,47 @@
+<!--MODAL NUEVO Inversion-->
+
+
+<div > 
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nro.:</span>
+    </div>
+    <input type="text" name="idInversion" id="idInversion" class="form-control" placeholder="" aria-describedby="basic-addon1" readonly onmousedown="return false;">
+    </div>
+
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Tipo de Inversion:</span>
+    </div>
+    <select type="text" name="idTipoInversion" id="idTipoInversion" class="form-select" placeholder="--- Seleccionar ---" aria-describedby="basic-addon1">
+        <% tipoInversion.forEach(function(item) { %>
+        <option value=<%= item.idTipoInversion %>><%= item.nombreTipoInversion %></option>
+        <% }); %>
+    </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Descripcion:</span>
+        </div>
+        <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Cantidad($):</span>
+        </div>
+        <input type="text" name="cantidad" id="cantidad" class="form-control" placeholder="0000,00" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Fecha:</span>
+        </div>
+        <input type="date" name="fecha" id="fecha" class="form-control" aria-describedby="basic-addon1">
+    </div>
+
+
+
+</div>
+<!---->

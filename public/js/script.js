@@ -39,6 +39,21 @@ $('#tabla-egresos').DataTable({
     }
 });
 
+$('#tabla-inversiones').DataTable({
+    order: [[0, "desc"]], //or asc
+    "columnDefs": [
+        {"className": "text-center", "targets": [0,3,4]},
+        {"orderable": false,"targets": [5]}
+    ],
+    pageLength: 8,
+    layout: {
+        topStart: {
+            buttons: [
+                'copyHtml5', 'excelHtml5', 'pdfHtml5'
+            ]
+        }
+    }
+});
 
 //----------FUNCIONES INGRESOS---------------------//
 //Funcion editar
@@ -84,5 +99,29 @@ function BorrarEgreso(e){
     let nro_Fila =  e.parentNode.parentNode.rowIndex;
     let idEgreso =  e.id;
     document.getElementById("Id_borrar").value = idEgreso;
+    document.getElementById("Nombre_borrar").value = tabla.rows[nro_Fila].cells[1].innerHTML;
+}
+
+
+//----------FUNCIONES INVERSIONES---------------------//
+//Funcion editar
+
+function EditarInversion(e){
+    let tabla = document.getElementById("tabla-inversiones");
+    let nro_Fila =  e.parentNode.parentNode.rowIndex;
+    document.getElementById("idInversion").value = e.id;
+    document.getElementById("idTipoInversion").value = tabla.rows[nro_Fila].cells[1].innerHTML;
+    document.getElementById("descripcion").value = tabla.rows[nro_Fila].cells[2].innerHTML
+    document.getElementById("cantidad").value = tabla.rows[nro_Fila].cells[3].innerHTML;
+    document.getElementById("fecha").value = tabla.rows[nro_Fila].cells[4].innerHTML;
+}
+
+//Funcion eliminar
+
+function BorrarInversion(e){
+    let tabla = document.getElementById("tabla-inversiones");
+    let nro_Fila =  e.parentNode.parentNode.rowIndex;
+    let idInversion =  e.id;
+    document.getElementById("Id_borrar").value = idInversion;
     document.getElementById("Nombre_borrar").value = tabla.rows[nro_Fila].cells[1].innerHTML;
 }
