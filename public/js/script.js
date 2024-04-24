@@ -47,7 +47,7 @@ function EditarIngreso(e){
     let tabla = document.getElementById("tabla-ingresos");
     let nro_Fila =  e.parentNode.parentNode.rowIndex;
     document.getElementById("idIngreso").value = e.id;
-    document.getElementById("idTipoIngreso").value = tabla.rows[nro_Fila].cells[1].innerHTML;
+    document.getElementById("nombreTipoIngreso").value = tabla.rows[nro_Fila].cells[1].innerHTML;
     document.getElementById("descripcion").value = tabla.rows[nro_Fila].cells[2].innerHTML
     document.getElementById("cantidad").value = tabla.rows[nro_Fila].cells[3].innerHTML;
     document.getElementById("fecha").value = tabla.rows[nro_Fila].cells[4].innerHTML;

@@ -18,7 +18,8 @@ vistaRegistro = (req, res) => {
 }
 
 vistaIngreso = (req, res) => {
-    var queries =['SELECT * FROM tipoIngreso','SELECT * FROM ingreso'];
+    var queries =['SELECT * FROM tipoIngreso',
+    'SELECT * FROM ingreso INNER JOIN tipoIngreso ON tipoIngreso.idTipoIngreso = ingreso.idTipoIngreso'];
 
     conexion.query(queries.join(';'),(error,results)=>{
         if(error){
@@ -31,7 +32,8 @@ vistaIngreso = (req, res) => {
 }
 
 vistaEgreso = (req, res) => {
-    var queries =['SELECT * FROM tipoEgreso','SELECT * FROM egreso'];
+    var queries =['SELECT * FROM tipoEgreso',
+    'SELECT * FROM egreso INNER JOIN tipoEgreso ON tipoEgreso.idTipoEgreso = egreso.idTipoEgreso'];
 
     conexion.query(queries.join(';'),(error,results)=>{
         if(error){

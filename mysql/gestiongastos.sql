@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
--- Host: localhost    Database: administracion
+-- Host: localhost    Database: gestiongastos
 -- ------------------------------------------------------
 -- Server version	8.0.33
 
@@ -101,16 +101,14 @@ DROP TABLE IF EXISTS `egreso`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `egreso` (
   `idEgreso` int NOT NULL AUTO_INCREMENT,
-  `idFilial` varchar(10) NOT NULL,
   `idTipoEgreso` int NOT NULL,
   `cantidad` decimal(20,2) NOT NULL,
-  `fecha` timestamp NULL DEFAULT NULL,
+  `fecha` varchar(10) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idEgreso`),
-  KEY `idFilial` (`idFilial`),
   KEY `idTipoEgreso` (`idTipoEgreso`),
-  CONSTRAINT `egreso_ibfk_1` FOREIGN KEY (`idFilial`) REFERENCES `filial` (`idFilial`),
   CONSTRAINT `egreso_ibfk_2` FOREIGN KEY (`idTipoEgreso`) REFERENCES `tipoegreso` (`idTipoEgreso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,6 +117,7 @@ CREATE TABLE `egreso` (
 
 LOCK TABLES `egreso` WRITE;
 /*!40000 ALTER TABLE `egreso` DISABLE KEYS */;
+INSERT INTO `egreso` VALUES (2,1,1232.43,'2024-04-23','SC'),(3,5,23423.00,'2024-04-02','Copas'),(4,15,234234.00,'2024-04-02','epe'),(5,14,2342.00,'2024-04-09','-');
 /*!40000 ALTER TABLE `egreso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,18 +158,13 @@ DROP TABLE IF EXISTS `ingreso`;
 CREATE TABLE `ingreso` (
   `idIngreso` int NOT NULL AUTO_INCREMENT,
   `idTipoIngreso` int NOT NULL,
-  `idContribuyente` int NOT NULL,
   `cantidad` decimal(20,2) NOT NULL,
-  `fecha` timestamp NULL DEFAULT NULL,
-  `idFilial` varchar(10) NOT NULL,
+  `fecha` varchar(10) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idIngreso`),
   KEY `idTipoIngreso` (`idTipoIngreso`),
-  KEY `idContribuyente` (`idContribuyente`),
-  KEY `fk_filial` (`idFilial`),
-  CONSTRAINT `fk_filial` FOREIGN KEY (`idFilial`) REFERENCES `filial` (`idFilial`),
-  CONSTRAINT `ingreso_ibfk_1` FOREIGN KEY (`idTipoIngreso`) REFERENCES `tipoingreso` (`idTipoIngreso`),
-  CONSTRAINT `ingreso_ibfk_2` FOREIGN KEY (`idContribuyente`) REFERENCES `contribuyente` (`idContribuyente`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `ingreso_ibfk_1` FOREIGN KEY (`idTipoIngreso`) REFERENCES `tipoingreso` (`idTipoIngreso`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +173,7 @@ CREATE TABLE `ingreso` (
 
 LOCK TABLES `ingreso` WRITE;
 /*!40000 ALTER TABLE `ingreso` DISABLE KEYS */;
-INSERT INTO `ingreso` VALUES (1,2,2,10000.00,'2024-04-22 03:00:00','C-01');
+INSERT INTO `ingreso` VALUES (2,2,1200.00,'2024-04-02','Electroluz'),(4,1,2342.23,'2024-04-23','Varios'),(5,3,1232.43,'2024-04-23','Electroluz');
 /*!40000 ALTER TABLE `ingreso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +197,7 @@ CREATE TABLE `tipoegreso` (
 
 LOCK TABLES `tipoegreso` WRITE;
 /*!40000 ALTER TABLE `tipoegreso` DISABLE KEYS */;
-INSERT INTO `tipoegreso` VALUES (19,'Conservación y Limpieza'),(20,'Donaciones a terceros'),(21,'Servicios: Luz, Gas, Agua, Tel., Seguros y otros'),(22,'Papelería y Utiles'),(23,'Impuestos, Tasas, Sellados y Aranceles'),(24,'Honorarios'),(25,'Movilidad y Viajes Misioneros'),(26,'Ayuda a Necesitados'),(27,'Viajes Especiales'),(28,'Gastos de Recepcion'),(29,'Alquileres Pagados'),(30,'Material Biblico'),(31,'Utensilios, Blanco y otros enseres'),(32,'Acreedores (cuota por compra o credito M. y U.'),(33,'Muebles y Utiles, instrumentos, instalaciones'),(34,'Materiales en acopio'),(35,'Mejoras (bienes de uso: Inmuebles - edificios)'),(36,'Compra de inmueble (incluye anticipos)'),(37,'Diferencia de Arqueo'),(38,'Total Gastos'),(39,'Transferencia otorgada a SEDE CENTRAL'),(40,'Depositos Bancarios'),(41,'Total fondos transferidos'),(42,'Total Salidas Contabilizadas');
+INSERT INTO `tipoegreso` VALUES (1,'Supermercado'),(2,'Panaderia'),(3,'Kiosco'),(4,'Tarjeta'),(5,'Bazar'),(6,'Vianda'),(7,'Cena'),(8,'Fotocopias'),(9,'Netflix'),(10,'Alquiler'),(11,'Intereses'),(12,'Viajes'),(13,'Obra Social'),(14,'Gas'),(15,'Luz'),(16,'Ofrenda'),(17,'Farmacia'),(18,'Merienda'),(19,'Peluqueria'),(20,'Ferreteria'),(21,'Varios');
 /*!40000 ALTER TABLE `tipoegreso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +221,7 @@ CREATE TABLE `tipoingreso` (
 
 LOCK TABLES `tipoingreso` WRITE;
 /*!40000 ALTER TABLE `tipoingreso` DISABLE KEYS */;
-INSERT INTO `tipoingreso` VALUES (1,'Saldo Mes Anterior'),(2,'Donaciones Generales Voluntarias'),(3,'Donaciones para Construccion o compra inmuebles'),(4,'Donaciones para Construccion o compra Bs Muebles'),(5,'Donaciones para Pago Impuestos y Servicios Publico'),(6,'Donaciones para Material Bíblico'),(7,'Total de Ofrendas'),(8,'Alquileres Cobrados'),(9,'Diferencia de Arqueo'),(10,'Ventas bienes de uso (incluye anticipos)'),(11,'total de otros ingresos'),(12,'Transferencia recibidas de'),(13,'Extracciones Bancarias'),(14,'Total Transferencias'),(15,'Total ingreso del mes (7+ 11 + 14)'),(19,'Total de Fondos (1 + 18)'),(20,'Total de salidas contabilizadas (42)'),(21,'Saldo de caja que pasa al proximo mes');
+INSERT INTO `tipoingreso` VALUES (1,'Saldo Mes Anterior'),(2,'Sueldo'),(3,'Aguinaldo'),(4,'Reintegro'),(5,'Particular'),(6,'Varios');
 /*!40000 ALTER TABLE `tipoingreso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-22 23:13:16
+-- Dump completed on 2024-04-24  7:27:59
