@@ -61,7 +61,7 @@ vistaInversiones  = (req, res) => {
 
 
 vistaUsuario = (req, res) => {
-    conexion.query('SELECT usuario.idUsuario, usuario.apellido, usuario.nombre, usuario.dni, usuario.direccion, usuario.localidad, usuario.correo, usuario.telefono, filial.nombreFilial, cargo.nombreCargo FROM usuario INNER JOIN filial ON filial.idFilial = usuario.idFilial INNER JOIN cargo ON cargo.idCargo = usuario.idCargo', (error,results)=>{
+    conexion.query('SELECT * FROM usuario', (error,results)=>{
         if(error){
             console.log(error);
         }else{
