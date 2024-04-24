@@ -4,14 +4,13 @@ const conexion = require("../database/database");
 //---------CONSULTAS INGRESOS ----------//
 
 exports.Registrar_Ingreso = (req, res)=>{
-    const idFilial = req.body.idFilial;
+
     const idTipoIngreso = req.body.idTipoIngreso;
-    const idContribuyente = req.body.idContribuyente;
     const cantidad = req.body.cantidad;
     const fecha = req.body.fecha;
 
 
-    conexion.query('INSERT INTO ingreso SET ?',{idFilial: idFilial, idTipoIngreso: idTipoIngreso, idContribuyente: idContribuyente,cantidad:cantidad,fecha:fecha}, (error, results)=>{
+    conexion.query('INSERT INTO ingreso SET ?',{idTipoIngreso: idTipoIngreso,cantidad:cantidad,fecha:fecha}, (error, results)=>{
         if(error){
             throw error;
         }else{
@@ -23,14 +22,12 @@ exports.Registrar_Ingreso = (req, res)=>{
 
 exports.Editar_Ingreso = (req, res)=>{
     const idIngreso = req.body.idIngreso
-    const idZona = req.body.idZona;
     const idTipoIngreso = req.body.idTipoIngreso;
-    const idContribuyente = req.body.idContribuyente;
     const cantidad = req.body.cantidad;
-    const fechaIngreso = req.body.fechaIngreso;
+    const fecha = req.body.fecha;
 
 
-    conexion.query('UPDATE ingreso SET ? WHERE Id= ? ', [{idZona: idZona, idTipoIngreso: idTipoIngreso, idContribuyente: idContribuyente,cantidad:cantidad,fechaIngreso:fechaIngreso}, idIngreso], (error, results)=>{
+    conexion.query('UPDATE ingreso SET ? WHERE idIngreso= ? ', [{idTipoIngreso: idTipoIngreso,cantidad:cantidad,fecha:fecha}, idIngreso], (error, results)=>{
         if(error){
             throw error;
         }else{
@@ -40,9 +37,9 @@ exports.Editar_Ingreso = (req, res)=>{
 }
 
 exports.Eliminar_Ingreso = (req,res) => {
-    const idIngreso = req.body.idIngreso
+    const idIngreso = req.body.idIngreso;
     console.log(idIngreso);
-    conexion.query('DELETE FROM ingreso WHERE Id = ?',[idIngreso], (error, results) =>{
+    conexion.query('DELETE FROM ingreso WHERE idIngreso = ?',[idIngreso], (error, results) =>{
         if(error){
             throw error;
         }else{

@@ -24,8 +24,9 @@ router.post('/registrarUsuario', auth.registrarUsuario);
 router.post('/login', auth.login);
 router.get('/logout', auth.logout);
 
-
+//INGRESOS
 router.post('/registroIngreso', crud.Registrar_Ingreso);
-
+router.post('/editarIngreso', crud.Editar_Ingreso);
+router.post('/eliminarIngreso', crud.Eliminar_Ingreso);
 
 module.exports = {routes: router};
