@@ -18,20 +18,28 @@ vistaRegistro = (req, res) => {
 }
 
 vistaIngreso = (req, res) => {
-    var queries =['SELECT * FROM tipoIngreso','SELECT * FROM contribuyente','SELECT * FROM filial','SELECT * FROM ingreso'];
+    var queries =['SELECT * FROM tipoIngreso','SELECT * FROM ingreso'];
 
     conexion.query(queries.join(';'),(error,results)=>{
         if(error){
             console.log(error);
         }else{
-            res.render('ingreso', {tipoIngreso:results[0],contribuyente:results[1], filial:results[2], ingreso:results[3], layout: 'layouts/layout2'});
+            res.render('ingreso', {tipoIngreso:results[0],ingreso:results[1], layout: 'layouts/layout2'});
         }
     });
     
 }
 
 vistaEgreso = (req, res) => {
-    res.render('egreso', {layout: 'layouts/layout2'});
+    var queries =['SELECT * FROM tipoEgreso','SELECT * FROM egreso'];
+
+    conexion.query(queries.join(';'),(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.render('egreso', {tipoEgreso:results[0],egreso:results[1], layout: 'layouts/layout2'});
+        }
+    });
 }
 
 vistaUsuario = (req, res) => {

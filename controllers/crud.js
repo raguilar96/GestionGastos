@@ -54,13 +54,14 @@ exports.Eliminar_Ingreso = (req,res) => {
 //---------CONSULTAS EGRESOS ----------//
 
 exports.Registrar_Egreso = (req, res)=>{
-    const idZona = req.body.idZona;
+
     const idTipoEgreso = req.body.idTipoEgreso;
+    const descripcion = req.body.descripcion;
     const cantidad = req.body.cantidad;
-    const fechaEgreso = req.body.fechaEgreso;
+    const fecha = req.body.fecha;
 
 
-    conexion.query('INSERT INTO egreso SET ?',{idZona: idZona, idTipoEgreso: idTipoEgreso,cantidad:cantidad,fechaEgreso:fechaEgreso}, (error, results)=>{
+    conexion.query('INSERT INTO egreso SET ?',{idTipoEgreso: idTipoEgreso,descripcion:descripcion,cantidad:cantidad,fecha:fecha}, (error, results)=>{
         if(error){
             throw error;
         }else{
@@ -70,14 +71,14 @@ exports.Registrar_Egreso = (req, res)=>{
 }
 
 exports.Editar_Egreso = (req, res)=>{
-    const idEgreso = req.body.idEgreso
-    const idZona = req.body.idZona;
+    const idEgreso = req.body.idEgreso;
     const idTipoEgreso = req.body.idTipoEgreso;
+    const descripcion = req.body.descripcion;
     const cantidad = req.body.cantidad;
-    const fechaEgreso = req.body.fechaEgreso;
+    const fecha = req.body.fecha;
 
 
-    conexion.query('UPDATE egreso SET ? WHERE Id= ? ', [{idZona: idZona, idTipoEgreso: idTipoEgreso,cantidad:cantidad,fechaEgreso:fechaEgreso}, idEgreso], (error, results)=>{
+    conexion.query('UPDATE egreso SET ? WHERE idEgreso= ? ', [{idTipoEgreso: idTipoEgreso,descripcion:descripcion,cantidad:cantidad,fecha:fecha}, idEgreso], (error, results)=>{
         if(error){
             throw error;
         }else{
@@ -89,7 +90,7 @@ exports.Editar_Egreso = (req, res)=>{
 exports.Eliminar_Egreso = (req,res) => {
     const idEgreso = req.body.idEgreso
     console.log(idEgreso);
-    conexion.query('DELETE FROM egreso WHERE Id = ?',[idEgreso], (error, results) =>{
+    conexion.query('DELETE FROM egreso WHERE idEgreso = ?',[idEgreso], (error, results) =>{
         if(error){
             throw error;
         }else{

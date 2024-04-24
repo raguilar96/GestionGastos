@@ -29,4 +29,9 @@ router.post('/registroIngreso', crud.Registrar_Ingreso);
 router.post('/editarIngreso', crud.Editar_Ingreso);
 router.post('/eliminarIngreso', crud.Eliminar_Ingreso);
 
+//EGRESOS
+router.post('/registroEgreso', crud.Registrar_Egreso);
+router.post('/editarEgreso', crud.Editar_Egreso);
+router.post('/eliminarEgreso', crud.Eliminar_Egreso);
+
 module.exports = {routes: router};
