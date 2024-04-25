@@ -58,6 +58,17 @@ vistaInversiones  = (req, res) => {
     });
 }
 
+vistaFlujoFondos  = (req, res) => {
+    var queries = 'SELECT * FROM flujoFondos';
+
+    conexion.query(queries,(error,results)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.render('flujoFondos', {flujoFondos:results, layout: 'layouts/layout2'});
+        }
+    });
+}
 
 
 vistaUsuario = (req, res) => {
@@ -78,5 +89,6 @@ module.exports = {
     vistaIngreso,
     vistaUsuario,
     vistaEgreso,
-    vistaInversiones
+    vistaInversiones,
+    vistaFlujoFondos
 }

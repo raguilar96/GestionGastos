@@ -1,3 +1,6 @@
+//const crud = require('controllers/crud');
+
+
 const hamburguesa = document.querySelector("#toggle-btn");
 
 hamburguesa.addEventListener("click", function(){
@@ -55,6 +58,21 @@ $('#tabla-inversiones').DataTable({
     }
 });
 
+$('#tabla-flujoFondos').DataTable({
+    order: [[0, "desc"]], //or asc
+    "columnDefs": [
+        {"className": "text-center", "targets": [0,1,2,3,4,5,6,7,8]}
+    ],
+    pageLength: 12,
+    layout: {
+        topStart: {
+            buttons: [
+                'copyHtml5', 'excelHtml5', 'pdfHtml5'
+            ]
+        }
+    }
+});
+
 //----------FUNCIONES INGRESOS---------------------//
 //Funcion editar
 
@@ -62,7 +80,7 @@ function EditarIngreso(e){
     let tabla = document.getElementById("tabla-ingresos");
     let nro_Fila =  e.parentNode.parentNode.rowIndex;
     document.getElementById("idIngreso").value = e.id;
-    document.getElementById("nombreTipoIngreso").value = tabla.rows[nro_Fila].cells[1].innerHTML;
+    document.getElementById("idTipoIngreso").value = tabla.rows[nro_Fila].cells[1].innerHTML;
     document.getElementById("descripcion").value = tabla.rows[nro_Fila].cells[2].innerHTML
     document.getElementById("cantidad").value = tabla.rows[nro_Fila].cells[3].innerHTML;
     document.getElementById("fecha").value = tabla.rows[nro_Fila].cells[4].innerHTML;

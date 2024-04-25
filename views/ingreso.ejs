@@ -14,32 +14,32 @@
     
     <!--TABLA-->         
     <table  id="tabla-ingresos" class="table table-striped table-ligth table-bordered table-hover">
-        <thead>
+      <thead>
           <tr>
-            <th class="edicion">Nro.</th>
-            <th>Tipo de Ingreso</th>
-            <th>Descripcion</th>
-            <th>Cantidad ($)</th>
-            <th>Fecha</th>
-            <th>Acción</th>
+              <th class="edicion">Nro.</th>
+              <th>Tipo de Ingreso</th>
+              <th>Descripcion</th>
+              <th>Cantidad ($)</th>
+              <th>Fecha</th>
+              <th>Acción</th>
           </tr>
-        </thead>
-        <tbody>
+      </thead>
+      <tbody>
           <tr>
-            <% ingreso.forEach(function(item) { %>
-            <td><%= item.idIngreso %></td>
-            <td><%= item.nombreTipoIngreso %></td>
-            <td><%= item.descripcion %></td>
-            <td><%= item.cantidad %></td>
-            <td><%= item.fecha %></td>
-            <td>
+              <% ingreso.forEach(function(item) { %>
+              <td><%= item.idIngreso %></td>
+              <td><%= item.nombreTipoIngreso %></td>
+              <td><%= item.descripcion %></td>
+              <td><%= item.cantidad %></td>
+              <td><%= item.fecha %></td>
+              <td>
               <input type='image' src='/img/Editar.png' data-bs-toggle="modal" data-bs-target="#modal-editar-ingreso" class ='img_boton' id = "<%= item.idIngreso %>" onclick = EditarIngreso(this); > 
               <input type='image' src='/img/Eliminar.png' data-bs-toggle="modal" data-bs-target="#modal-eliminar-ingreso" class ='img_boton' id = "<%= item.idIngreso %>" onclick = BorrarIngreso(this); >
-            </td>
+              </td>
           </tr>
-          <% }); %>
-        </tbody>
-    </table>
+      <% }); %>
+      </tbody>
+  </table>
   </div>
 </div>
 

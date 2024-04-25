@@ -16,6 +16,7 @@ router.get('/registro', vistaRegistro);
 router.get('/ingreso',  vistaIngreso);
 router.get('/egreso',  vistaEgreso);
 router.get('/inversiones',  vistaInversiones);
+router.get('/flujoFondos',  vistaFlujoFondos);
 router.get('/usuario', vistaUsuario);
 
 

@@ -1,0 +1,38 @@
+<div class="container my-3"> 
+  <h1>FLUJO DE FONDOS</h1>
+
+  <!--TABLA-->         
+
+
+    <table  id="tabla-flujoFondos" class="table table-striped table-ligth table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Nro.</th>
+            <th>Mes</th>
+            <th>Año</th>
+            <th>T.Ingresos</th>
+            <th>T.Inversiones</th>
+            <th>T.Egresos</th>
+            <th>Total</th>
+            <th>Acumulado</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% flujoFondos.forEach(function(item) { %>
+            <td><%= item.idFlujoFondos %></td>
+            <td><%= item.mes %></td>
+            <td><%= item.year %></td>
+            <td><%= item.ingresos %></td>
+            <td><%= item.inversiones %></td>
+            <td><%= item.egresos %></td>
+            <td><%= item.total %></td>
+            <td><%= item.acumulado %></td>
+            <td><%= item.fecha %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+    </table>
+
+</div>
