@@ -5,7 +5,7 @@ const conexion = mysql.createConnection({
     host: process.env.DB_HOST,
     user: "root",
     password: "$eguro",
-    database: "gestiongastos",
+    database: "walletadmin",
     multipleStatements: true
 })
 

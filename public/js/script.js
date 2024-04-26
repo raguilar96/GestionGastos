@@ -1,11 +1,20 @@
 //const crud = require('controllers/crud');
 
 
-const hamburguesa = document.querySelector("#toggle-btn");
+const botonMenu = document.querySelector("#toggle-btn");
 
-hamburguesa.addEventListener("click", function(){
+botonMenu.addEventListener("click", function(){
     document.querySelector("#sidebar").classList.toggle("expand");
+
 })
+
+
+jQuery(".sidebar-nav li").on('click',function(){ 
+    jQuery(this).addClass("active").siblings().removeClass("active"); 
+});
+
+
+
 
 
 //Creo los datatables:

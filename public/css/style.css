@@ -121,10 +121,11 @@ a.sidebar-link{
   margin-right: .75rem;
 }
 
-a.sidebar-link:hover{
+a.sidebar-link:hover, .active {
   background-color: var(--color-secundario-dark);
   border-left: 3px solid var(--color-terciario-dark);
 }
+
 
 .sidebar-item{
   position: relative;
