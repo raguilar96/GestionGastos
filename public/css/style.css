@@ -92,6 +92,22 @@ a.sidebar-link:hover, .active {
     font-weight: 600;
 }
 
+.logo{
+    border-bottom: .2px solid var(--color-terciario-dark);
+}
+
+#toggle-btn{
+background-color: transparent;
+cursor: pointer;
+border: 0;
+padding: 1rem 1.3rem;
+}
+
+#toggle-btn i{
+font-size: 1.5rem;
+color: var(--color-blanco);
+}
+
 .sidebar-nav {
     flex-grow: 1;
     list-style: none;
@@ -172,7 +188,9 @@ a.sidebar-link {
 /* Sidebar Toggle */
 
 #sidebar.collapsed {
-    margin-left: -264px;
+    
+    margin-left: -50px;
+    
 }
 
 /* Footer and Nav */

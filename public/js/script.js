@@ -1,5 +1,5 @@
 //const crud = require('controllers/crud');
-const sidebarToggle = document.querySelector("#sidebar-toggle");
+const sidebarToggle = document.querySelector("#toggle-btn");
 sidebarToggle.addEventListener("click",function(){
     document.querySelector("#sidebar").classList.toggle("collapsed");
 });
@@ -40,11 +40,20 @@ botonMenu.addEventListener("click", function(){
 })
 
 */
-jQuery(".sidebar-nav li").on('click',function(){ 
-    jQuery(this).addClass("active").siblings().removeClass("active"); 
+
+$(".sidebar-nav li").on('click',function(){ 
+    $(this).addClass("active").siblings().removeClass("active"); 
 });
 
 
+/*
+const linkcolor = document.querySelectorAll(".sidebar-nav li");
+function colorLink() {
+  linkcolor.forEach((item) => item.classList.remove("active"));
+  this.classList.add("active");
+}
+linkcolor.forEach((item) => item.addEventListener("click", colorLink));
+*/
 
 
 
